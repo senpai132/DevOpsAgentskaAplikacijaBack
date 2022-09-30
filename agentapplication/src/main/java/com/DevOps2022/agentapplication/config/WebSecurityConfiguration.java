@@ -45,6 +45,7 @@ public class WebSecurityConfiguration {
         .antMatchers("/auth/**").permitAll()
         .antMatchers("/company/**").permitAll()
         .antMatchers("/jobopening/**").permitAll()
+        .antMatchers("/comment/**").permitAll()
         .anyRequest().authenticated().and()
         // za development svrhe ukljuci konfiguraciju za CORS iz WebConfig klase
         .cors().and()
