@@ -39,7 +39,7 @@ public class CommentController {
     public ResponseEntity<List<CommentDTO>> getCommentsByCompany(@PathVariable String company)
     {
         return new ResponseEntity<List<CommentDTO>>(commentMapper.toDtoList(commentService.getCommentsByCompany(company)), 
-            HttpStatus.CREATED);
+            HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
@@ -47,7 +47,7 @@ public class CommentController {
     {
         try {
             return new ResponseEntity<String>(commentService.deleteComment(id), 
-                HttpStatus.CREATED);
+                HttpStatus.OK);
     
         } catch (Exception e) {
             return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
