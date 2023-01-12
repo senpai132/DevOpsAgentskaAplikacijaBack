@@ -42,6 +42,14 @@ public class CompanyService {
         return companyRespository.findByStatus(false);
     }
 
+    public List<Company> getAllOwned(String name) {
+        return companyRespository.findByOwnerAndStatus(name, true);
+    }
+
+    public List<Company> getAllNotOwned(String name) {
+        return companyRespository.findByOwnerNotAndStatus(name, true);
+    }
+
     public String editCompany(Company company, String name) throws Exception {
         Company company_local = companyRespository.findByName(name);
         if(company_local == null || company_local.getStatus() == false)
@@ -50,12 +58,15 @@ public class CompanyService {
         Company temp = companyRespository.findByName(company.getName());
 
         if(temp != null && !temp.getName().equals(name))
-            return "Company with given name already exists.";
-        
+            throw new Exception("Company with given name already exists.");
+
+        company_local.setName(company.getName());
         company_local.setAddress(company.getAddress());
         company_local.setCulture(company.getCulture());
         company_local.setDescription(company.getDescription());
         company_local.setName(company.getName());
+        company_local.setEmailAddress(company.getEmailAddress());
+        company_local.setPhoneNumber(company.getPhoneNumber());
 
         companyRespository.save(company_local);
 

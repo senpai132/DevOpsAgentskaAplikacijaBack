@@ -12,6 +12,11 @@ public class UserMapper implements MapperInterface<User, UserDTO>{
         User user = new User();
         user.setUsername(dto.getUsername());
         user.setPassword(dto.getPassword());
+        user.setName(dto.getName());
+        user.setBirthDate(dto.getBirthDate());
+        user.setEmail(dto.getEmail());
+        user.setGender(dto.getGender());
+        user.setPhoneNumber(dto.getPhoneNumber());
         return user;
     }
 

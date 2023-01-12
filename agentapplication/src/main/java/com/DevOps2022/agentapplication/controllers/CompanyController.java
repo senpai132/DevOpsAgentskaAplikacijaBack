@@ -66,6 +66,20 @@ public class CompanyController {
             HttpStatus.OK);
     }
 
+    @GetMapping("/getowned/{owner}")
+    public ResponseEntity<List<CompanyDTO>> getAllOwnedCompanies(@PathVariable String owner)
+    {
+        return new ResponseEntity<List<CompanyDTO>>(companyMapper.toDtoList(companyService.getAllOwned(owner)),
+                HttpStatus.OK);
+    }
+
+    @GetMapping("/getnotowned/{owner}")
+    public ResponseEntity<List<CompanyDTO>> getAllNotOwnedCompanies(@PathVariable String owner)
+    {
+        return new ResponseEntity<List<CompanyDTO>>(companyMapper.toDtoList(companyService.getAllNotOwned(owner)),
+                HttpStatus.OK);
+    }
+
     @PutMapping("/edit/{name}")
     public ResponseEntity<String> editCompany(@PathVariable String name, @RequestBody CompanyDTO dto)
     {

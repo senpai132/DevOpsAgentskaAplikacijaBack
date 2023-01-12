@@ -17,4 +17,6 @@ public class CompanyDTO {
     private String description;
     private String address;
     private Boolean status;
+    private String phoneNumber;
+    private String emailAddress;
 }

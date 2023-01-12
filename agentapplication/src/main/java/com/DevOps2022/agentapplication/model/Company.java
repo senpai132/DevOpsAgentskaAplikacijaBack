@@ -23,10 +23,18 @@ public class Company {
 
     @Column(unique = true, nullable = false)
     private String name;
-    
+    @Column
     private String owner;
+    @Column
     private String culture;
+    @Column
     private String description;
+    @Column
     private String address;
+    @Column
     private Boolean status;
+    @Column
+    private String phoneNumber;
+    @Column
+    private String emailAddress;
 }
