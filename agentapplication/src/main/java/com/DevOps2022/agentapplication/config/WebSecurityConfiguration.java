@@ -43,11 +43,10 @@ public class WebSecurityConfiguration {
     protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/h2-console/**").permitAll()
         .antMatchers("/auth/**").permitAll()
-        .antMatchers("/company/**").permitAll()
-        .antMatchers("/jobopening/**").permitAll()
-        .antMatchers("/comment/**").permitAll()
-        .antMatchers("/salary/**").permitAll()
-        .antMatchers("/interview/**").permitAll()
+        .antMatchers(HttpMethod.GET,"/company/**").permitAll()
+        .antMatchers(HttpMethod.GET,"/comment/**").permitAll()
+        .antMatchers(HttpMethod.GET,"/interview/**").permitAll()
+        .antMatchers(HttpMethod.GET,"/salary/**").permitAll()
         .anyRequest().authenticated().and()
         // za development svrhe ukljuci konfiguraciju za CORS iz WebConfig klase
         .cors().and()

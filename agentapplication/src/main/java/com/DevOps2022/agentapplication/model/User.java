@@ -29,6 +29,21 @@ public class User implements UserDetails {
     @Column(name = "last_password_reset_date", nullable = true)
     private Timestamp lastPasswordResetDate;
 
+    @Column
+    protected String name;
+
+    @Column
+    protected String phoneNumber;
+
+    @Column
+    protected Date birthDate;
+
+    @Column
+    protected String email;
+
+    @Column
+    protected String gender;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "client_authority",
             joinColumns = @JoinColumn(name = "client_id", referencedColumnName = "id"),
@@ -40,6 +55,17 @@ public class User implements UserDetails {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public User(String username, String password, String name,
+                String phoneNumber, Date birthDate, String email, String gender) {
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.birthDate = birthDate;
+        this.email = email;
+        this.gender = gender;
     }
 
     public Integer getId() {
@@ -111,5 +137,45 @@ public class User implements UserDetails {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return Objects.equals(username, user.username);
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

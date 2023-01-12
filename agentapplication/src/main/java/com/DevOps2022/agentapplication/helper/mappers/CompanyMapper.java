@@ -16,6 +16,8 @@ public class CompanyMapper implements MapperInterface<Company, CompanyDTO>{
         company_local.setDescription(dto.getDescription());
         company_local.setName(dto.getName());
         company_local.setOwner(dto.getOwner());
+        company_local.setPhoneNumber(dto.getPhoneNumber());
+        company_local.setEmailAddress(dto.getEmailAddress());
         return company_local;
     }
 
@@ -36,6 +38,8 @@ public class CompanyMapper implements MapperInterface<Company, CompanyDTO>{
         company_local.setDescription(entity.getDescription());
         company_local.setName(entity.getName());
         company_local.setOwner(entity.getOwner());
+        company_local.setPhoneNumber(entity.getPhoneNumber());
+        company_local.setEmailAddress(entity.getEmailAddress());
         return company_local;
     }
 
