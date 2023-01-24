@@ -1,0 +1,20 @@
+services:
+  agentapp-service:
+    image: senpai132/agentappback:latest
+    restart: on-failure
+    ports:
+      - "8099:8099"
+    networks:
+      - agentapp
+  agentapp-front:
+    image: senpai132/agentappfront:latest
+    restart: on-failure
+    ports:
+      - "3006:80"
+    networks:
+      - agentapp
+      
+networks:
+  agentapp:
+    name: agentapp
+    driver: bridge

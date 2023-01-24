@@ -1,0 +1,6 @@
+build:
+  docker:
+    web: Dockerfile
+  config:
+    API_URL: "  apiUrl:  'https://agents-devops-2023-terraform.herokuapp.com/'"
+
